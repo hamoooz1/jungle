@@ -8,6 +8,31 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+  <div>
+  <div>
+    <h4>Order Details:</h4>
+    <% @order.line_items.each do |line_item| %>
+      <div>
+        <%= image_tag(line_item.product.image_url, alt: line_item.product.name, style: 'max-width: 100px;') %>
+        <div>
+          <h5><%= line_item.product.name %></h5>
+          <p><%= line_item.product.description %></p>
+          <p>Quantity: <%= line_item.quantity %></p>
+          <p>Line Item Total: <%= number_to_currency(line_item.total_price) %></p>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+
+  <div>
+    <h5>Order Summary</h5>
+    <p>Email: <%= @order.email %></p>
+    <p>Total Amount: <%= number_to_currency(@order.total) %></p>
+  </div>
+</div>
+</div>
+
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
