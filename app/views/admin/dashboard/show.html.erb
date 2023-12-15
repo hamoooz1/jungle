@@ -1,2 +1,10 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<div class="dashboard-content" style="display: flex; justify-content: space-around;">
+  <div> 
+    <h3> Amount of products left: </h3>
+    <h4><%= @products_count %></h4>
+  </div>
+  <div> 
+  <h3> Amount of categories: </h3>
+  <h4><%= @categories_count %></h4>
+  </div>
+</div>
