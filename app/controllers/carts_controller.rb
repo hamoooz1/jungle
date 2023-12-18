@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
 
   def show
+    if items_in_cart === 0
+      render 'empty_cart'
+    end
   end
 
   def add_item
@@ -21,7 +24,7 @@ class CartsController < ApplicationController
   private
   
   def items_in_cart
-  
+    cart.count
   end
   
   def modify_cart_delta(product_id, delta)
